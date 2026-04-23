@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Calm clinical design system. All colors HSL. */
+
+@layer base {
+  :root {
+    --background: 210 40% 99%;
+    --foreground: 215 30% 14%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 30% 14%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 30% 14%;
+
+    /* Calm medical teal */
+    --primary: 187 72% 32%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 187 70% 45%;
+    --primary-soft: 187 60% 95%;
+
+    --secondary: 210 30% 96%;
+    --secondary-foreground: 215 30% 18%;
+
+    --muted: 210 30% 96%;
+    --muted-foreground: 215 15% 46%;
+
+    --accent: 187 60% 95%;
+    --accent-foreground: 187 72% 25%;
+
+    /* Urgent / warning */
+    --urgent: 14 88% 55%;
+    --urgent-foreground: 0 0% 100%;
+    --urgent-soft: 14 90% 96%;
+
+    /* Success / in-network */
+    --success: 152 62% 38%;
+    --success-foreground: 0 0% 100%;
+    --success-soft: 152 60% 95%;
+
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 25% 90%;
+    --input: 214 25% 90%;
+    --ring: 187 72% 32%;
+
+    --radius: 0.875rem;
+
+    --gradient-hero: linear-gradient(135deg, hsl(187 72% 32%) 0%, hsl(200 75% 42%) 100%);
+    --gradient-soft: linear-gradient(180deg, hsl(187 60% 97%) 0%, hsl(210 40% 99%) 100%);
+    --shadow-soft: 0 1px 2px hsl(215 30% 14% / 0.04), 0 8px 24px -12px hsl(187 72% 32% / 0.12);
+    --shadow-card: 0 1px 2px hsl(215 30% 14% / 0.04), 0 12px 32px -16px hsl(215 30% 14% / 0.12);
+    --shadow-glow: 0 8px 32px -8px hsl(187 70% 45% / 0.4);
+
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 215 35% 8%;
+    --foreground: 210 40% 98%;
+    --card: 215 32% 11%;
+    --card-foreground: 210 40% 98%;
+    --popover: 215 32% 11%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 187 70% 45%;
+    --primary-foreground: 215 35% 8%;
+    --primary-glow: 187 70% 55%;
+    --primary-soft: 187 50% 18%;
+    --secondary: 215 28% 16%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 215 28% 16%;
+    --muted-foreground: 215 15% 65%;
+    --accent: 187 50% 18%;
+    --accent-foreground: 187 70% 75%;
+    --urgent: 14 88% 60%;
+    --urgent-foreground: 0 0% 100%;
+    --urgent-soft: 14 50% 18%;
+    --success: 152 62% 45%;
+    --success-foreground: 0 0% 100%;
+    --success-soft: 152 40% 16%;
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 215 28% 18%;
+    --input: 215 28% 18%;
+    --ring: 187 70% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply min-h-screen bg-topographic text-foreground;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  .font-display {
+    font-family: 'Fraunces', 'Inter', serif;
+    font-feature-settings: "ss01";
+    letter-spacing: -0.02em;
+  }
+}
+
+
+@layer utilities {
+  .bg-topographic {
+    /* Fixed so the wave band stays at the bottom of the viewport, matching the landing view on every page. */
+    background-attachment: fixed;
+    background-image:
+      radial-gradient(42% 16% at 12% 104%, hsl(162 33% 79% / 0.9) 0%, hsl(162 33% 79% / 0.9) 60%, transparent 61%),
+      radial-gradient(46% 18% at 38% 106%, hsl(162 33% 79% / 0.9) 0%, hsl(162 33% 79% / 0.9) 60%, transparent 61%),
+      radial-gradient(44% 17% at 66% 105%, hsl(162 33% 79% / 0.9) 0%, hsl(162 33% 79% / 0.9) 60%, transparent 61%),
+      radial-gradient(40% 15% at 90% 103%, hsl(162 33% 79% / 0.9) 0%, hsl(162 33% 79% / 0.9) 60%, transparent 61%),
+      radial-gradient(140% 12% at 50% 46%, hsl(175 27% 74% / 0.34) 0%, hsl(175 27% 74% / 0.34) 0.7%, transparent 0.75%),
+      radial-gradient(150% 16% at 50% 52%, hsl(175 27% 74% / 0.28) 0%, hsl(175 27% 74% / 0.28) 0.6%, transparent 0.66%),
+      linear-gradient(180deg, hsl(180 12% 94%) 0%, hsl(180 12% 94%) 100%);
+    background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+    background-repeat: no-repeat;
+  }
+}
